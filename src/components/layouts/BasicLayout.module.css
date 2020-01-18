@@ -1,0 +1,57 @@
+/**
+ * Copyright (c) 2019 Yishan Authors
+ *
+ * All rights reserved
+ */
+
+.container {
+  overflow: hidden;
+  position: relative;
+}
+.inner {
+  height: 100%;
+}
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+}
+.body {
+  display: flex;
+  margin-top: 50px;
+}
+.aside {
+  flex-grow: 0;
+  flex-shrink: 0;
+  position: fixed;
+  z-index: 9;
+  width: 300px;
+
+  height: calc(100vh - 50px);
+}
+@media (max-width: 1200px) {
+  .aside {
+    width: 250px;
+  }
+}
+.main {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 400px;
+  padding-right: 400px;
+  padding-top: 20px;
+}
+
+.mainBody {
+  width: 100%;
+  max-width: 1000px;
+  min-height: calc(100vh - 150px);
+  margin: 0 auto;
+}
+.mainFooter {
+  margin: 32px 0;
+  color: #6a737d;
+}

@@ -3,4 +3,5 @@
  *
  * All rights reserved
  */
-import '@testing-library/jest-dom/extend-expect';
+
+export { default as Avatar } from './Avatar';

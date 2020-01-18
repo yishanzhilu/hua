@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/**
+ * Copyright (c) 2019 Yishan Authors
+ *
+ * All rights reserved
+ */
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import { BasicError } from 'src/components/errors';
+import BasicLayout from 'src/components/layouts/BasicLayout';
+
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const WorkspaceDashboard = lazy(() => import('./pages/workspace/Dashboard'));
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <BasicLayout>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/workspace/dashboard" component={WorkspaceDashboard} />
+            <Route path="*">
+              <BasicError statusCode={404} />
+            </Route>
+          </Switch>
+        </Suspense>
+      </BasicLayout>
+    </Router>
   );
-}
+};
 
 export default App;

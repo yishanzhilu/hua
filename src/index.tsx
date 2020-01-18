@@ -1,8 +1,19 @@
+/**
+ * Copyright (c) 2019 Yishan Authors
+ *
+ * All rights reserved
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import '@yishanzhilubp/core/lib/css/blueprint.css';
+import { FocusStyleManager } from '@yishanzhilubp/core';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+FocusStyleManager.onlyShowFocusOnTabs();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
