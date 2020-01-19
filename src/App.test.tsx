@@ -8,6 +8,6 @@ import { render } from '@testing-library/react';
 import App from './App';
 
 it('App match snapshot', () => {
-  const { container } = render(<App />);
-  expect(container).toMatchSnapshot();
+  const { asFragment } = render(<App />);
+  expect(asFragment).toMatchSnapshot();
 });

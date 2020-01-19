@@ -54,6 +54,7 @@
     "lint-staged": "^9.5.0",
     "mini-css-extract-plugin": "0.8.0",
     "node-sass": "^4.13.1",
+    "open-cli": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.5.0",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -88,14 +89,14 @@
     "dev": "node scripts/dev.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "test:coverage": "cross-env CI=true yarn test --coverage",
+    "test:coverage": "cross-env CI=true yarn test --coverage ||{ open-cli coverage/index.html; return 1;}",
     "lint": "eslint src/. --ext .ts,.tsx",
     "lint:style": "stylelint '**/*.{css,scss}'",
     "commit": "commit"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "npm-run-all -p lint-staged test:coverage",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -125,6 +126,18 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "text-summary",
+      "html"
     ],
     "setupFiles": [
       "react-app-polyfill/jsdom"
