@@ -3,14 +3,6 @@ const path = require('path');
 module.exports = {
   extends: ['react-app'],
   plugins: ['header'],
-  settings: {
-    'import/resolver': {
-      alias: {
-        extensions: ['.tsx', '.ts', '.json'],
-        map: [['@', path.resolve(__dirname, './')]],
-      },
-    },
-  },
   rules: {
     'max-len': [
       'error',
@@ -25,7 +17,7 @@ module.exports = {
     'header/header': [
       'warn',
       'block',
-      '*\n * Copyright (c) 2019 Yishan Authors\n *\n * All rights reserved\n ',
+      `*\n * Copyright (c) ${new Date().getFullYear()} Yishan Authors\n *\n * All rights reserved\n `,
     ],
     '@typescript-eslint/explicit-function-return-type': ['off'],
     'react/jsx-props-no-spreading': ['off'],

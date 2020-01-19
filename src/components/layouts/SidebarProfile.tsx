@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 Yishan Authors
+ * Copyright (c) 2020 Yishan Authors
  *
  * All rights reserved
  */
@@ -36,7 +36,7 @@ export function Profile() {
           className={classnames(Classes.TEXT_OVERFLOW_ELLIPSIS)}
           style={{ fontWeight: 600, maxWidth: 125 }}
         >
-          {name || '您好'}
+          {name}
         </div>
       </div>
       <div className="row">

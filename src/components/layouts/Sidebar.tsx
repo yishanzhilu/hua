@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 Yishan Authors
+ * Copyright (c) 2020 Yishan Authors
  *
  * All rights reserved
  */
@@ -21,9 +21,9 @@ const NavLabel: React.FC<{
   to: string;
   title: string;
   emoji: string;
-  expended?: React.ReactNode;
+  // expended?: React.ReactNode;
   level?: number;
-}> = ({ to, title, emoji, level = 0, expended = null }) => {
+}> = ({ to, title, emoji, level = 0 }) => {
   const linkClass = classnames(Classes.TREE_NODE, styles.link);
   return (
     <NavLink
@@ -40,7 +40,8 @@ const NavLabel: React.FC<{
           {title}
         </Text>
       </div>
-      {expended && <div className={Classes.TREE_NODE_EXPANDED}>{expended}</div>}
+      {/* {expended && <div className=
+      {Classes.TREE_NODE_EXPANDED}>{expended}</div>} */}
     </NavLink>
   );
 };

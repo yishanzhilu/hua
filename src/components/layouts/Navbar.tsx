@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 Yishan Authors
+ * Copyright (c) 2020 Yishan Authors
  *
  * All rights reserved
  */
@@ -12,15 +12,12 @@ import {
   Navbar as NavbarContainer,
   NavbarGroup,
   NavbarHeading,
-  Alignment,
   Icon,
-  Switch,
   NavbarDivider,
   Position,
   Popover,
   Menu,
   MenuItem,
-  AnchorButton,
   MenuDivider,
 } from '@yishanzhilubp/core';
 import { Link } from 'react-router-dom';
@@ -28,10 +25,38 @@ import { Link } from 'react-router-dom';
 const CreateMenu: React.FC = () => {
   return (
     <Menu>
-      <MenuItem icon={<span role="img" aria-label="goal">🎯</span>} text="设立目标" />
-      <MenuItem icon={<span role="img" aria-label="task">📜</span>} text="创建任务" />
-      <MenuItem icon={<span role="img" aria-label="log">🎬</span>} text="添加记录" />
-      <MenuItem icon={<span role="img" aria-label="todo">✔️</span>} text="新增代办" />
+      <MenuItem
+        icon={
+          <span role="img" aria-label="goal">
+            🎯
+          </span>
+        }
+        text="设立目标"
+      />
+      <MenuItem
+        icon={
+          <span role="img" aria-label="task">
+            📜
+          </span>
+        }
+        text="创建任务"
+      />
+      <MenuItem
+        icon={
+          <span role="img" aria-label="log">
+            🎬
+          </span>
+        }
+        text="添加记录"
+      />
+      <MenuItem
+        icon={
+          <span role="img" aria-label="todo">
+            ✔️
+          </span>
+        }
+        text="新增代办"
+      />
     </Menu>
   );
 };
@@ -55,16 +80,14 @@ const ProfileMenu: React.FC = () => {
       />
       <MenuDivider />
       <Link to="/settings/profile">
-        <MenuItem icon="settings" text="设置" />
+        <MenuItem tagName="div" icon="settings" text="设置" />
       </Link>
       <MenuItem icon="log-out" text="退出" />
     </Menu>
   );
 };
 
-export const Navbar = () => {
-  const isDarkTheme = false;
-  const isLogin = false;
+export const Navbar = ({ isLogin = false }) => {
   return (
     <NavbarContainer>
       <NavbarGroup>
@@ -82,15 +105,9 @@ export const Navbar = () => {
           <input className="bp3-input" placeholder="搜索移山" dir="auto" />
         </div>
       </NavbarGroup>
-      <NavbarGroup align={Alignment.RIGHT}>
+      <NavbarGroup align="right">
         {isLogin ? (
           <>
-            <Switch
-              checked={isDarkTheme}
-              label="深色模式"
-              alignIndicator={Alignment.RIGHT}
-              style={{ marginBottom: 0 }}
-            />
             <NavbarDivider />
             <Popover content={<CreateMenu />} position={Position.BOTTOM_RIGHT}>
               <Button className={Classes.MINIMAL} icon="add" />
@@ -100,9 +117,9 @@ export const Navbar = () => {
             </Popover>
           </>
         ) : (
-          <AnchorButton minimal intent="primary">
+          <Button minimal intent="primary">
             内测用户登录
-          </AnchorButton>
+          </Button>
         )}
       </NavbarGroup>
     </NavbarContainer>

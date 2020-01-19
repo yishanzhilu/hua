@@ -1,8 +1,9 @@
 /**
- * Copyright (c) 2019 Yishan Authors
+ * Copyright (c) 2020 Yishan Authors
  *
  * All rights reserved
  */
+
 import React, { ReactElement } from 'react';
 import { IProps } from 'src/types/IProps';
 
@@ -12,9 +13,7 @@ import style from './BasicLayout.module.css';
 
 interface IBasicLayoutProps extends IProps {}
 
-export default function BasicLayout({
-  children,
-}: IBasicLayoutProps): ReactElement {
+export function BasicLayout({ children }: IBasicLayoutProps): ReactElement {
   return (
     <div className={style.container}>
       <div className={style.inner}>

@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2019 Yishan Authors
+ * Copyright (c) 2020 Yishan Authors
  *
  * All rights reserved
  */
 import React from 'react';
-
+import { BasicLayout } from 'src/components/layouts/BasicLayout';
 
 const Home: React.FC = () => {
-  return <div>Home</div>;
+  return <BasicLayout>Home</BasicLayout>;
 };
 
 export default Home;
